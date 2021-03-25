@@ -14,7 +14,7 @@ Ich habe grundlegende Kenntnisse von Linux und bereits erste Erfahrungen zum The
 
 #### Befehle
 
-### Docker Allgemeine Befehle                                                 
+##### Docker Allgemeine Befehle                                                 
 | Befehl                       | Effekt                         |
 | ---------------------------- |:------------------------------:|
 | docker stats | Zeigt ressourcennutzung der Container in Echtzeit |
@@ -22,7 +22,7 @@ Ich habe grundlegende Kenntnisse von Linux und bereits erste Erfahrungen zum The
 | docker login | Im Docker Hub anmelden |
 
 
-### Docker Build Befehle                                          
+##### Docker Build Befehle                                          
 | Befehl                       | Effekt                         |
 | ---------------------------- |:------------------------------:|
 | docker build -t *imagename* | Erstellt ein Image vom Dockerfile mit dem festgelegten Namen im Verzeichnis |
@@ -32,7 +32,7 @@ Ich habe grundlegende Kenntnisse von Linux und bereits erste Erfahrungen zum The
 | docker rmi `docker images -q -f dangling=true` | Zwischenimages löschen |
 
 
-### Docker Run Befehle                                                  
+##### Docker Run Befehle                                                  
 | Befehl                       | Effekt                         |
 | ---------------------------- |:------------------------------:|
 | docker run --name *containername* *imagename* | Startet ein bestimmtes Image |
