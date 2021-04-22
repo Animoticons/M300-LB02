@@ -12,6 +12,44 @@ Docker ist eine Software zur Containevirtualisierung von Anwendungen. Mithilfe d
 Ich habe grundlegende Kenntnisse von Linux und bereits erste Erfahrungen zum Thema Vagrant gesammelt. Ich habe bereits zuvor von Docker gehört, allerdings noch nie damit zu tun gehabt.
 
 
+#### Umgebung erstellen
+
+Zuerst wird natülich Docker auf dem lokalen Rechner installiert. Nach einem Neustart des Computers kann es dann auch schon losgehen.
+Ich erstelle ein Image aus dem Dockerfile, welches ich lokal auf meinem Computer habe:
+
+```
+Get-Content Dockerfile | docker build -
+```
+
+Danach benenne ich zur Klarheit das Image um:
+
+```
+docker tag 83a2e2c76573 apache2image
+```
+
+Jetzt wird ein Container mit dem Image erstellt und gestartet:
+
+```
+docker run --rm -d -p 8080:80 -v /web:/var/www/html --name Apache2Container 83a2e2c76573
+```
+
+Jetzt ist der Container mit Apache2 darin gestartet. Wenn dies erfolgreich funktioniert hat, kann man
+via dem folgenden Befehl auf die Kommandozeile zugreiffen:
+
+```
+docker exec -it Apache2Container /bin/bash
+```
+
+Ich gehe nun mit "exit" zurück zur Powershell Konsole und zeige apache den Pfad zum HTML-File
+
+```
+docker cp C:\Users\Lars\OneDrive\OneDriveDesktop\M300\M300-LB02\index.html Apache2Container:/var/www/html/
+```
+
+Unter "localhost:8080" kann die Webseite jetzt aufgerufen werden.
+
+
+
 #### Befehle
                             
 							
@@ -88,4 +126,4 @@ Mittels "Deployments" können ganze Umgebungen schnell und einfach aufgesetzt we
 | kubectl set | Updaten und Bearbeiten von Images, Environment variables, resources, usw. |
 | kubectl explain *api-resource*  | Zeigt Details zu einer Ressource an. |
 | kubectl delete *ressource name* | Löscht die angegebene Ressource. |
-|  |  |
+| kubctl get all | Zeigt alle aktuellen Ressourcen an |
